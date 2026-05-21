@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import ArticleLayout from "@layouts/ArticleLayout.astro";
+
+export async function getStaticPaths() {
+  const works = await getCollection("works");
+  return works
+    .filter((work) => work.data.visibility === "public")
+    .map((work) => ({ params: { slug: work.slug }, props: { work } }));
+}
+
+const { work } = Astro.props;
+const { Content } = await work.render();
+---
+
+<ArticleLayout title={work.data.title} description={work.data.summary} date={work.data.date} tags={work.data.tags} backHref="/works">
+  <div class="article-meta-grid">
+    <div><span>status</span><strong>{work.data.status}</strong></div>
+    <div><span>category</span><strong>{work.data.category}</strong></div>
+  </div>
+  <Content />
+  <div class="article-links">
+    {Object.entries(work.data.links).filter(([, url]) => url).map(([label, url]) => (
+      <a class="button ghost" href={url as string} target="_blank" rel="noreferrer">{label}</a>
+    ))}
+  </div>
+</ArticleLayout>

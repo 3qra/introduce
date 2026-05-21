@@ -1,0 +1,13 @@
+---
+interface Props {
+  name: string;
+  detail: string;
+}
+
+const { name, detail } = Astro.props;
+---
+
+<div class="skill-badge">
+  <strong>{name}</strong>
+  <span>{detail}</span>
+</div>

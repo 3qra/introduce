@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import BlogCard from "@components/BlogCard.astro";
+
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft || !import.meta.env.PROD)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Blog" description="技術ブログと制作メモ。">
+  <section class="page-hero">
+    <p class="eyebrow">Blog</p>
+    <h1>技術ブログ</h1>
+    <p>draft: true の記事は本番ビルドでは非表示になります。</p>
+  </section>
+  <section class="stack-list wide">
+    {posts.map((post) => <BlogCard post={post} />)}
+  </section>
+</BaseLayout>

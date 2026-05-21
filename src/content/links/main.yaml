@@ -1,0 +1,18 @@
+- name: GitHub
+  url: "https://github.com/xxxx"
+  type: "code"
+  identity: "handle"
+  visibility: "public"
+  description: "制作物とコードの公開先"
+- name: X
+  url: "https://x.com/xxxx"
+  type: "social"
+  identity: "handle"
+  visibility: "public"
+  description: "活動メモや更新告知"
+- name: Career Profile
+  url: "https://example.com"
+  type: "career"
+  identity: "real_name"
+  visibility: "career"
+  description: "就活・院進向けプロフィール"

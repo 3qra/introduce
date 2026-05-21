@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const records = (await getCollection("learning"))
+  .filter((record) => record.data.visibility === "public")
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Learning" description="資格と学習記録。">
+  <section class="page-hero">
+    <p class="eyebrow">Learning</p>
+    <h1>学習ログ</h1>
+    <p>資格、語学、情報安全、AI学習の進捗をMarkdownで管理します。</p>
+  </section>
+  <section class="timeline">
+    {records.map((record) => (
+      <div>
+        <span>{record.data.status}</span>
+        <h2>{record.data.title}</h2>
+        <p>{record.data.summary}</p>
+        <div class="tag-row">{record.data.tags.map((tag) => <span class="tag">{tag}</span>)}</div>
+      </div>
+    ))}
+  </section>
+</BaseLayout>

@@ -1,0 +1,32 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  date?: Date;
+  tags?: string[];
+  backHref?: string;
+}
+
+const { title, description, date, tags = [], backHref = "/" } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="article-shell">
+    <a class="back-link" href={backHref}>Back</a>
+    <header class="article-header">
+      {date && <time datetime={date.toISOString()}>{date.toLocaleDateString("ja-JP")}</time>}
+      <h1>{title}</h1>
+      <p>{description}</p>
+      {tags.length > 0 && (
+        <div class="tag-row">
+          {tags.map((tag) => <span class="tag">{tag}</span>)}
+        </div>
+      )}
+    </header>
+    <div class="article-body">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

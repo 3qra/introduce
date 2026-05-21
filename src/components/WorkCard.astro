@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  work: CollectionEntry<"works">;
+}
+
+const { work } = Astro.props;
+const statusLabel = {
+  idea: "Idea",
+  "in-progress": "In progress",
+  released: "Released",
+  archived: "Archived",
+}[work.data.status];
+---
+
+<a class="work-card card-link" href={`/works/${work.slug}`}>
+  <div class="card-topline">
+    <span>{work.data.category}</span>
+    <span>{statusLabel}</span>
+  </div>
+  <h3>{work.data.title}</h3>
+  <p>{work.data.summary}</p>
+  <div class="tag-row">
+    {work.data.tags.slice(0, 4).map((tag) => <span class="tag">{tag}</span>)}
+  </div>
+</a>

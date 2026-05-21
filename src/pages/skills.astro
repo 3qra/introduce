@@ -1,0 +1,27 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import SkillBadge from "@components/SkillBadge.astro";
+
+const skills = [
+  ["Python", "scraping / data / visualization"],
+  ["Java", "application / fundamentals"],
+  ["C++", "algorithm / systems"],
+  ["GAS", "workflow automation"],
+  ["Web", "Astro / HTML / CSS / JS"],
+  ["VPS / Linux", "deploy / operations"],
+  ["Bot / Automation", "Discord / tasks / integration"],
+  ["鉄道データ", "timetable / route / visualization"],
+  ["天文システム", "time calculation / observation support"],
+];
+---
+
+<BaseLayout title="Skills" description="3qraのスキル一覧。">
+  <section class="page-hero">
+    <p class="eyebrow">Skills</p>
+    <h1>スキル一覧</h1>
+    <p>実装、データ処理、運用、学習中の領域をまとめます。</p>
+  </section>
+  <section class="skill-grid">
+    {skills.map(([name, detail]) => <SkillBadge name={name} detail={detail} />)}
+  </section>
+</BaseLayout>

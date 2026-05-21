@@ -1,0 +1,32 @@
+---
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/works", label: "Works" },
+  { href: "/blog", label: "Blog" },
+  { href: "/skills", label: "Skills" },
+  { href: "/career", label: "Career" },
+  { href: "/learning", label: "Learning" },
+  { href: "/links", label: "Links" },
+];
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+---
+
+<header class="site-header">
+  <a class="brand" href="/" aria-label="Home">
+    <span class="brand-mark">3q</span>
+    <span>intro.3qra.jp</span>
+  </a>
+  <nav class="nav-list" aria-label="Primary navigation">
+    {navItems.map((item) => {
+      const itemPath = item.href === "/" ? "/" : item.href;
+      const active = itemPath === "/" ? pathname === "/" : pathname.startsWith(itemPath);
+      return (
+        <a class={active ? "active" : ""} href={item.href}>
+          {item.label}
+        </a>
+      );
+    })}
+  </nav>
+</header>

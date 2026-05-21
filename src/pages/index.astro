@@ -1,0 +1,79 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import WorkCard from "@components/WorkCard.astro";
+import BlogCard from "@components/BlogCard.astro";
+import LinkCard from "@components/LinkCard.astro";
+
+const works = (await getCollection("works"))
+  .filter((work) => work.data.visibility === "public" && work.data.featured)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 5);
+
+const posts = (await getCollection("blog"))
+  .filter((post) => !post.data.draft || !import.meta.env.PROD)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const linkGroups = await getCollection("links");
+const links = linkGroups.flatMap((group) => group.data).filter((link) => link.visibility === "public").slice(0, 4);
+---
+
+<BaseLayout>
+  <section class="hero-section">
+    <div class="hero-copy">
+      <p class="eyebrow">Portfolio / Research log / Playground</p>
+      <h1>3qra</h1>
+      <p>
+        鉄道データ、天文システム、Web、Bot、自動化を横断して作る個人ポートフォリオ。
+        制作物と学習記録をMarkdownで継続的に更新します。
+      </p>
+      <div class="hero-actions">
+        <a class="button primary" href="/works">Works</a>
+        <a class="button ghost" href="/about">About</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="orbit orbit-a"></div>
+      <div class="orbit orbit-b"></div>
+      <div class="station s1"></div>
+      <div class="station s2"></div>
+      <div class="station s3"></div>
+      <div class="route-line r1"></div>
+      <div class="route-line r2"></div>
+      <div class="pulse-core">3q</div>
+    </div>
+  </section>
+
+  <section class="section-band">
+    <div class="section-heading">
+      <p class="eyebrow">Featured</p>
+      <h2>代表作品</h2>
+      <a href="/works">All works</a>
+    </div>
+    <div class="card-grid">
+      {works.map((work) => <WorkCard work={work} />)}
+    </div>
+  </section>
+
+  <section class="split-section">
+    <div>
+      <div class="section-heading compact">
+        <p class="eyebrow">Recent</p>
+        <h2>最近の記事</h2>
+      </div>
+      <div class="stack-list">
+        {posts.map((post) => <BlogCard post={post} />)}
+      </div>
+    </div>
+    <div>
+      <div class="section-heading compact">
+        <p class="eyebrow">Connect</p>
+        <h2>主要リンク</h2>
+      </div>
+      <div class="stack-list">
+        {links.map((link) => <LinkCard {...link} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
