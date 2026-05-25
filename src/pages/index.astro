@@ -2,76 +2,113 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import WorkCard from "@components/WorkCard.astro";
-import BlogCard from "@components/BlogCard.astro";
 import LinkCard from "@components/LinkCard.astro";
 
 const works = (await getCollection("works"))
-  .filter((work) => work.data.visibility === "public" && work.data.featured)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 5);
-
-const posts = (await getCollection("blog"))
-  .filter((post) => !post.data.draft || !import.meta.env.PROD)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
+  .filter((work) => work.data.visibility === "public")
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
 const linkGroups = await getCollection("links");
-const links = linkGroups.flatMap((group) => group.data).filter((link) => link.visibility === "public").slice(0, 4);
+const links = linkGroups.flatMap((group) => group.data).filter((link) => link.visibility === "public");
+
+const skills = [
+  ["Python", "scraping / data / visualization"],
+  ["Java", "application / fundamentals"],
+  ["C++", "algorithm / systems"],
+  ["GAS", "workflow automation"],
+  ["Web", "Astro / HTML / CSS / JS"],
+  ["VPS / Linux", "deploy / operations"],
+  ["Bot / Automation", "Discord / tasks / integration"],
+  ["鉄道データ", "timetable / route / visualization"],
+  ["天文システム", "time calculation / observation support"],
+];
 ---
 
-<BaseLayout>
+<BaseLayout title="咲良川 / sakuragawa" description="咲良川の自己紹介、制作物、リンクをまとめたポートフォリオサイト。">
   <section class="hero-section">
     <div class="hero-copy">
-      <p class="eyebrow">Portfolio / Research log / Playground</p>
-      <h1>3qra</h1>
+      <p class="eyebrow">Portfolio</p>
+      <h1>咲良川 / sakuragawa</h1>
       <p>
-        鉄道データ、天文システム、Web、Bot、自動化を横断して作る個人ポートフォリオ。
-        制作物と学習記録をMarkdownで継続的に更新します。
+        2005年生まれの学生です。制作物、学習していること、外部リンクをこのページにまとめています。
+        好きな食べ物はきしめんです。
       </p>
       <div class="hero-actions">
-        <a class="button primary" href="/works">Works</a>
-        <a class="button ghost" href="/about">About</a>
+        <a class="button primary" href="#works">作品を見る</a>
+        <a class="button ghost" href="#profile">プロフィール</a>
       </div>
     </div>
-    <div class="hero-visual" aria-hidden="true">
-      <div class="orbit orbit-a"></div>
-      <div class="orbit orbit-b"></div>
-      <div class="station s1"></div>
-      <div class="station s2"></div>
-      <div class="station s3"></div>
-      <div class="route-line r1"></div>
-      <div class="route-line r2"></div>
-      <div class="pulse-core">3q</div>
+    <div class="hero-panel" aria-label="Site overview">
+      <div>
+        <span>Works</span>
+        <strong>{works.length}</strong>
+      </div>
+      <div>
+        <span>Focus</span>
+        <strong>Web / Data</strong>
+      </div>
+      <div>
+        <span>Base</span>
+        <strong>Astro</strong>
+      </div>
     </div>
   </section>
 
-  <section class="section-band">
+  <section class="section-band" id="works">
     <div class="section-heading">
       <p class="eyebrow">Featured</p>
-      <h2>代表作品</h2>
-      <a href="/works">All works</a>
+      <h2>今まで作ったもの</h2>
     </div>
     <div class="card-grid">
       {works.map((work) => <WorkCard work={work} />)}
     </div>
   </section>
 
-  <section class="split-section">
-    <div>
-      <div class="section-heading compact">
-        <p class="eyebrow">Recent</p>
-        <h2>最近の記事</h2>
-      </div>
-      <div class="stack-list">
-        {posts.map((post) => <BlogCard post={post} />)}
-      </div>
+  <section class="content-grid two" id="profile">
+    <div class="info-panel">
+      <p class="eyebrow">Profile</p>
+      <h2>興味分野</h2>
+      <ul class="marker-list">
+        <li>鉄道データの収集、整形、可視化</li>
+        <li>天文システム、観測支援、時刻計算</li>
+        <li>Webアプリケーションと静的サイト構築</li>
+        <li>Bot、自動化、個人用補助ツール</li>
+      </ul>
     </div>
+    <div class="info-panel">
+      <p class="eyebrow">Now</p>
+      <h2>現在取り組んでいること</h2>
+      <ul class="marker-list">
+        <li>GitHub Pages + Astro のポートフォリオ運用</li>
+        <li>Python によるデータ取得と可視化</li>
+        <li>応用情報、語学、情報安全の継続学習</li>
+        <li>VPS / Linux 環境での小規模サービス運用</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section-band" id="skills">
+    <div class="section-heading">
+      <p class="eyebrow">Skills</p>
+      <h2>使っている技術</h2>
+    </div>
+    <div class="skill-grid">
+      {skills.map(([name, detail]) => (
+        <div class="skill-badge">
+          <strong>{name}</strong>
+          <span>{detail}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section-band" id="links">
     <div>
       <div class="section-heading compact">
         <p class="eyebrow">Connect</p>
         <h2>主要リンク</h2>
       </div>
-      <div class="stack-list">
+      <div class="card-grid">
         {links.map((link) => <LinkCard {...link} />)}
       </div>
     </div>

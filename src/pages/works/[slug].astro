@@ -13,7 +13,7 @@ const { work } = Astro.props;
 const { Content } = await work.render();
 ---
 
-<ArticleLayout title={work.data.title} description={work.data.summary} date={work.data.date} tags={work.data.tags} backHref="/works">
+<ArticleLayout title={work.data.title} description={work.data.summary} date={work.data.date} tags={work.data.tags} backHref="/#works">
   <div class="article-meta-grid">
     <div><span>status</span><strong>{work.data.status}</strong></div>
     <div><span>category</span><strong>{work.data.category}</strong></div>
