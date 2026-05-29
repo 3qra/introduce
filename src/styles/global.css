@@ -60,6 +60,8 @@ a {
 }
 
 .site-header {
+  position: relative;
+  z-index: 20;
   display: flex;
   gap: 20px;
   align-items: center;
@@ -94,6 +96,14 @@ a {
   flex-wrap: wrap;
   gap: 8px;
   justify-content: flex-end;
+  padding: 4px;
+  background: rgba(255, 250, 241, 0.52);
+  border-radius: 999px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.72),
+    0 10px 28px rgba(82, 49, 32, 0.1);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
 }
 
 .nav-list a {
@@ -116,8 +126,8 @@ a {
 .nav-list a:hover,
 .nav-list a.active {
   color: var(--accent-strong);
-  background: rgba(255, 250, 241, 0.78);
-  border-color: #efc4c8;
+  background: rgba(255, 255, 255, 0.42);
+  border-color: rgba(255, 255, 255, 0.52);
 }
 
 main {
@@ -138,7 +148,7 @@ main {
 .floating-shapes {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   overflow: hidden;
   pointer-events: none;
 }
@@ -153,12 +163,16 @@ main {
 .shape-sakura {
   width: 86px;
   height: 86px;
-  background:
-    radial-gradient(circle at 50% 18%, rgba(255, 207, 212, 0.68) 0 18%, transparent 19%),
-    radial-gradient(circle at 82% 50%, rgba(255, 207, 212, 0.68) 0 18%, transparent 19%),
-    radial-gradient(circle at 50% 82%, rgba(255, 207, 212, 0.68) 0 18%, transparent 19%),
-    radial-gradient(circle at 18% 50%, rgba(255, 207, 212, 0.68) 0 18%, transparent 19%),
-    radial-gradient(circle, rgba(217, 154, 49, 0.28) 0 8%, transparent 9%);
+  background: url("../img/sakura.png") center / contain no-repeat;
+  mix-blend-mode: multiply;
+}
+
+.shape-a {
+  filter: hue-rotate(-6deg) saturate(0.85);
+}
+
+.shape-b {
+  filter: hue-rotate(8deg) saturate(0.76);
 }
 
 .shape-orb {
@@ -234,6 +248,7 @@ main {
 
 .hero-copy {
   position: relative;
+  z-index: 1;
 }
 
 .hero-copy::before {
@@ -244,12 +259,8 @@ main {
   width: 148px;
   height: 148px;
   content: "";
-  background:
-    radial-gradient(circle at 50% 18%, rgba(255, 207, 212, 0.72) 0 18%, transparent 19%),
-    radial-gradient(circle at 82% 50%, rgba(255, 207, 212, 0.72) 0 18%, transparent 19%),
-    radial-gradient(circle at 50% 82%, rgba(255, 207, 212, 0.72) 0 18%, transparent 19%),
-    radial-gradient(circle at 18% 50%, rgba(255, 207, 212, 0.72) 0 18%, transparent 19%),
-    radial-gradient(circle, rgba(217, 154, 49, 0.35) 0 8%, transparent 9%);
+  background: url("../img/sakura.png") center / contain no-repeat;
+  mix-blend-mode: multiply;
   opacity: 0.5;
   transform-origin: 50% 50%;
   animation:
@@ -320,6 +331,7 @@ main {
 
 .profile-portrait {
   position: relative;
+  z-index: 1;
   margin: 0;
 }
 
@@ -359,9 +371,19 @@ main {
   width: min(100%, 520px);
   height: auto;
   margin-left: auto;
-  border: 10px solid rgba(255, 250, 241, 0.74);
+  padding: 10px;
+  background:
+    linear-gradient(145deg, #fffef8, #efe0ce),
+    url("../img/paper.jpg");
+  background-size: auto, 520px auto;
+  background-blend-mode: screen, multiply;
+  border: 0;
   border-radius: 26px;
-  box-shadow: var(--shadow);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -10px 28px rgba(112, 74, 48, 0.08),
+    0 28px 64px rgba(82, 49, 32, 0.22),
+    0 4px 14px rgba(82, 49, 32, 0.1);
 }
 
 .profile-portrait figcaption {
@@ -980,6 +1002,8 @@ main {
 
   .nav-list {
     gap: 4px;
+    justify-content: center;
+    border-radius: 18px;
   }
 
   .nav-list a {
@@ -988,8 +1012,23 @@ main {
     font-size: 0.82rem;
   }
 
+  .hero-section {
+    display: grid;
+    gap: 18px;
+    padding: 18px 0 54px;
+  }
+
+  .hero-copy {
+    display: contents;
+  }
+
+  .hero-copy .eyebrow {
+    order: 1;
+  }
+
   .hero-copy h1 {
-    margin: 4px 0 10px;
+    order: 2;
+    margin: 10px 0 2px;
     font-size: clamp(1.95rem, 11.5vw, 2.55rem);
     line-height: 1.02;
   }
@@ -1000,6 +1039,7 @@ main {
   }
 
   .hero-copy p {
+    order: 4;
     margin: 0;
     font-size: 0.9rem;
     line-height: 1.62;
@@ -1010,8 +1050,10 @@ main {
   }
 
   .hero-actions {
+    order: 5;
     gap: 8px;
-    margin-top: 12px;
+    justify-content: center;
+    margin-top: 2px;
   }
 
   .button {
@@ -1020,9 +1062,16 @@ main {
     font-size: 0.9rem;
   }
 
+  .profile-portrait {
+    order: 3;
+    justify-self: center;
+    margin: 8px 0 4px;
+  }
+
   .profile-portrait img {
-    width: min(58vw, 230px);
-    border-width: 7px;
+    width: min(66vw, 250px);
+    margin: 0 auto;
+    padding: 7px;
     border-radius: 18px;
   }
 
