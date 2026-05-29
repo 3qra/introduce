@@ -152,7 +152,11 @@ main {
     radial-gradient(circle at 18% 50%, rgba(255, 207, 212, 0.72) 0 18%, transparent 19%),
     radial-gradient(circle, rgba(217, 154, 49, 0.35) 0 8%, transparent 9%);
   opacity: 0.5;
-  animation: sakura-drift 18s ease-in-out infinite alternate;
+  transform-origin: 50% 50%;
+  animation:
+    sakura-drift 8s ease-in-out infinite alternate,
+    sakura-opacity 11s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 .hero-copy h1,
@@ -232,7 +236,10 @@ main {
   width: 38%;
   aspect-ratio: 1;
   background: rgba(217, 154, 49, 0.18);
-  animation: float-orb-gold 22s ease-in-out infinite alternate;
+  animation:
+    float-orb-gold 9s ease-in-out infinite alternate,
+    gold-orb-opacity 13s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 .profile-portrait::after {
@@ -240,7 +247,10 @@ main {
   width: 30%;
   aspect-ratio: 1;
   background: rgba(177, 92, 99, 0.14);
-  animation: float-orb-pink 26s ease-in-out infinite alternate;
+  animation:
+    float-orb-pink 10s ease-in-out infinite alternate,
+    pink-orb-opacity 17s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 .profile-portrait img {
@@ -584,7 +594,7 @@ main {
   }
 
   to {
-    transform: translate3d(10px, -7px, 0) rotate(3deg);
+    transform: translate3d(52px, -34px, 0) rotate(14deg) scale(1.08);
   }
 }
 
@@ -594,7 +604,7 @@ main {
   }
 
   to {
-    transform: translate3d(-12px, 9px, 0) scale(1.04);
+    transform: translate3d(-58px, 38px, 0) scale(1.16);
   }
 }
 
@@ -604,7 +614,73 @@ main {
   }
 
   to {
-    transform: translate3d(12px, -8px, 0) scale(0.96);
+    transform: translate3d(48px, -36px, 0) scale(0.84);
+  }
+}
+
+@keyframes sakura-opacity {
+  0% {
+    opacity: 0.5;
+  }
+
+  23% {
+    opacity: 0.55;
+  }
+
+  47% {
+    opacity: 0.48;
+  }
+
+  71% {
+    opacity: 0.53;
+  }
+
+  100% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes gold-orb-opacity {
+  0% {
+    opacity: 1;
+  }
+
+  19% {
+    opacity: 0.95;
+  }
+
+  43% {
+    opacity: 1;
+  }
+
+  68% {
+    opacity: 0.97;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pink-orb-opacity {
+  0% {
+    opacity: 1;
+  }
+
+  17% {
+    opacity: 1;
+  }
+
+  39% {
+    opacity: 0.96;
+  }
+
+  74% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
