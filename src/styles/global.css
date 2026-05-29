@@ -452,6 +452,149 @@ main {
   animation: particle-right-b 12s ease-in-out infinite alternate, particle-opacity 16s ease-in-out infinite;
 }
 
+.particle-m { top: 7%; left: 13%; width: 19px; height: 19px; animation: particle-left-b 12s ease-in-out infinite alternate, particle-opacity 18s ease-in-out infinite; }
+.particle-n { top: 9%; right: 15%; width: 28px; height: 28px; animation: particle-right-b 16s ease-in-out infinite alternate, particle-opacity-soft 20s ease-in-out infinite; }
+.particle-o { top: 17%; left: 2%; width: 25px; height: 25px; animation: particle-left-a 14s ease-in-out infinite alternate-reverse, particle-opacity 19s ease-in-out infinite; }
+.particle-p { top: 19%; right: 22%; width: 18px; height: 18px; animation: particle-right-a 11s ease-in-out infinite alternate, particle-opacity-soft 15s ease-in-out infinite; }
+.particle-q { top: 23%; left: 18%; width: 21px; height: 21px; animation: particle-left-b 17s ease-in-out infinite alternate, particle-opacity 23s ease-in-out infinite; }
+.particle-r { top: 27%; right: 1%; width: 32px; height: 32px; animation: particle-right-b 13s ease-in-out infinite alternate-reverse, particle-opacity 17s ease-in-out infinite; }
+.particle-s { top: 31%; left: 11%; width: 16px; height: 16px; animation: particle-left-a 10s ease-in-out infinite alternate, particle-opacity-soft 14s ease-in-out infinite; }
+.particle-t { top: 36%; right: 14%; width: 27px; height: 27px; animation: particle-right-a 18s ease-in-out infinite alternate, particle-opacity 22s ease-in-out infinite; }
+.particle-u { top: 39%; left: 4%; width: 31px; height: 31px; animation: particle-left-b 15s ease-in-out infinite alternate-reverse, particle-opacity 21s ease-in-out infinite; }
+.particle-v { top: 42%; right: 26%; width: 18px; height: 18px; animation: particle-right-b 12s ease-in-out infinite alternate, particle-opacity-soft 16s ease-in-out infinite; }
+.particle-w { top: 48%; left: 14%; width: 24px; height: 24px; animation: particle-left-a 16s ease-in-out infinite alternate, particle-opacity 20s ease-in-out infinite; }
+.particle-x { top: 50%; right: 4%; width: 20px; height: 20px; animation: particle-right-a 11s ease-in-out infinite alternate-reverse, particle-opacity-soft 18s ease-in-out infinite; }
+.particle-y { top: 56%; left: 1%; width: 34px; height: 34px; animation: particle-left-b 19s ease-in-out infinite alternate, particle-opacity 24s ease-in-out infinite; }
+.particle-z { top: 61%; right: 20%; width: 23px; height: 23px; animation: particle-right-b 14s ease-in-out infinite alternate, particle-opacity 17s ease-in-out infinite; }
+.particle-aa { top: 67%; left: 18%; width: 18px; height: 18px; animation: particle-left-a 12s ease-in-out infinite alternate, particle-opacity-soft 19s ease-in-out infinite; }
+.particle-ab { top: 70%; right: 13%; width: 30px; height: 30px; animation: particle-right-a 16s ease-in-out infinite alternate-reverse, particle-opacity 21s ease-in-out infinite; }
+.particle-ac { top: 76%; left: 3%; width: 21px; height: 21px; animation: particle-left-b 13s ease-in-out infinite alternate, particle-opacity-soft 15s ease-in-out infinite; }
+.particle-ad { top: 79%; right: 25%; width: 19px; height: 19px; animation: particle-right-b 10s ease-in-out infinite alternate, particle-opacity 16s ease-in-out infinite; }
+.particle-ae { top: 86%; left: 13%; width: 25px; height: 25px; animation: particle-left-a 17s ease-in-out infinite alternate-reverse, particle-opacity 23s ease-in-out infinite; }
+.particle-af { top: 88%; right: 2%; width: 35px; height: 35px; animation: particle-right-a 15s ease-in-out infinite alternate, particle-opacity-soft 20s ease-in-out infinite; }
+.particle-ag { top: 94%; left: 20%; width: 16px; height: 16px; animation: particle-left-b 11s ease-in-out infinite alternate, particle-opacity-soft 17s ease-in-out infinite; }
+.particle-ah { top: 96%; right: 18%; width: 22px; height: 22px; animation: particle-right-b 18s ease-in-out infinite alternate, particle-opacity 22s ease-in-out infinite; }
+.particle-ai { top: 2%; right: 31%; width: 18px; height: 18px; animation: particle-right-a 13s ease-in-out infinite alternate, particle-opacity-soft 18s ease-in-out infinite; }
+.particle-aj { top: 12%; left: 25%; width: 20px; height: 20px; animation: particle-left-a 15s ease-in-out infinite alternate, particle-opacity 20s ease-in-out infinite; }
+.particle-ak { top: 21%; right: 34%; width: 17px; height: 17px; animation: particle-right-b 12s ease-in-out infinite alternate-reverse, particle-opacity-soft 17s ease-in-out infinite; }
+.particle-al { top: 29%; left: 28%; width: 21px; height: 21px; animation: particle-left-b 16s ease-in-out infinite alternate, particle-opacity 21s ease-in-out infinite; }
+.particle-am { top: 44%; right: 35%; width: 16px; height: 16px; animation: particle-right-a 14s ease-in-out infinite alternate, particle-opacity-soft 19s ease-in-out infinite; }
+.particle-an { top: 52%; left: 27%; width: 18px; height: 18px; animation: particle-left-a 10s ease-in-out infinite alternate-reverse, particle-opacity 18s ease-in-out infinite; }
+.particle-ao { top: 63%; right: 31%; width: 22px; height: 22px; animation: particle-right-b 17s ease-in-out infinite alternate, particle-opacity-soft 24s ease-in-out infinite; }
+.particle-ap { top: 81%; left: 30%; width: 17px; height: 17px; animation: particle-left-b 12s ease-in-out infinite alternate, particle-opacity 19s ease-in-out infinite; }
+.particle-aq { top: 6%; left: 34%; width: 14px; height: 14px; animation: particle-left-a 9s ease-in-out infinite alternate, particle-opacity-soft 14s ease-in-out infinite; }
+.particle-ar { top: 15%; right: 39%; width: 16px; height: 16px; animation: particle-right-a 12s ease-in-out infinite alternate, particle-opacity-soft 18s ease-in-out infinite; }
+.particle-as { top: 33%; left: 38%; width: 15px; height: 15px; animation: particle-left-b 13s ease-in-out infinite alternate-reverse, particle-opacity-soft 16s ease-in-out infinite; }
+.particle-at { top: 59%; right: 41%; width: 16px; height: 16px; animation: particle-right-b 14s ease-in-out infinite alternate, particle-opacity 22s ease-in-out infinite; }
+.particle-au { top: 72%; left: 36%; width: 14px; height: 14px; animation: particle-left-a 10s ease-in-out infinite alternate, particle-opacity-soft 15s ease-in-out infinite; }
+.particle-av { top: 90%; right: 37%; width: 18px; height: 18px; animation: particle-right-a 16s ease-in-out infinite alternate, particle-opacity-soft 20s ease-in-out infinite; }
+.particle-aw { top: 18%; left: 43%; width: 13px; height: 13px; animation: particle-left-b 11s ease-in-out infinite alternate, particle-opacity-soft 14s ease-in-out infinite; }
+.particle-ax { top: 37%; right: 45%; width: 15px; height: 15px; animation: particle-right-b 12s ease-in-out infinite alternate-reverse, particle-opacity-soft 17s ease-in-out infinite; }
+.particle-ay { top: 68%; left: 44%; width: 13px; height: 13px; animation: particle-left-a 9s ease-in-out infinite alternate, particle-opacity-soft 15s ease-in-out infinite; }
+.particle-az { top: 97%; right: 45%; width: 15px; height: 15px; animation: particle-right-a 13s ease-in-out infinite alternate, particle-opacity-soft 17s ease-in-out infinite; }
+.particle-ba { top: 11%; left: 48%; width: 12px; height: 12px; animation: particle-left-b 10s ease-in-out infinite alternate, particle-opacity-soft 16s ease-in-out infinite; }
+.particle-bb { top: 49%; right: 48%; width: 14px; height: 14px; animation: particle-right-b 11s ease-in-out infinite alternate, particle-opacity-soft 18s ease-in-out infinite; }
+.particle-bc { top: 83%; left: 49%; width: 12px; height: 12px; animation: particle-left-a 12s ease-in-out infinite alternate-reverse, particle-opacity-soft 15s ease-in-out infinite; }
+.particle-bd { top: 5%; right: 48%; width: 12px; height: 12px; animation: particle-right-a 9s ease-in-out infinite alternate, particle-opacity-soft 14s ease-in-out infinite; }
+.particle-be { top: 26%; left: 47%; width: 11px; height: 11px; animation: particle-left-b 13s ease-in-out infinite alternate, particle-opacity-soft 16s ease-in-out infinite; }
+.particle-bf { top: 75%; right: 49%; width: 11px; height: 11px; animation: particle-right-b 10s ease-in-out infinite alternate, particle-opacity-soft 17s ease-in-out infinite; }
+.particle-bg { top: 93%; left: 46%; width: 13px; height: 13px; animation: particle-left-a 11s ease-in-out infinite alternate, particle-opacity-soft 15s ease-in-out infinite; }
+.particle-bh { top: 57%; right: 46%; width: 12px; height: 12px; animation: particle-right-a 12s ease-in-out infinite alternate-reverse, particle-opacity-soft 18s ease-in-out infinite; }
+
+.particle-b,
+.particle-g,
+.particle-n,
+.particle-w,
+.particle-ae,
+.particle-am,
+.particle-bc {
+  filter: sepia(0.4) hue-rotate(300deg) saturate(0.62) brightness(0.82) contrast(0.72);
+}
+
+.particle-d,
+.particle-j,
+.particle-q,
+.particle-z,
+.particle-ah,
+.particle-ar,
+.particle-bh {
+  filter: sepia(0.65) hue-rotate(322deg) saturate(0.54) brightness(0.68) contrast(0.7);
+}
+
+.particle-f,
+.particle-m,
+.particle-v,
+.particle-ab,
+.particle-ai,
+.particle-at,
+.particle-bg {
+  filter: sepia(0.85) hue-rotate(18deg) saturate(0.42) brightness(0.72) contrast(0.68);
+}
+
+.particle-c,
+.particle-h,
+.particle-o,
+.particle-y,
+.particle-af,
+.particle-al,
+.particle-ay {
+  filter: sepia(0.5) hue-rotate(350deg) saturate(0.36) brightness(0.76) contrast(0.64);
+}
+
+.particle-e,
+.particle-r,
+.particle-aa,
+.particle-ao,
+.particle-aw,
+.particle-bd {
+  filter: sepia(0.8) hue-rotate(42deg) saturate(0.3) brightness(0.66) contrast(0.62);
+}
+
+.shape-a,
+.shape-h {
+  filter: sepia(0.45) hue-rotate(305deg) saturate(0.6) brightness(0.74) contrast(0.7);
+}
+
+.shape-g,
+.shape-i {
+  filter: sepia(0.75) hue-rotate(350deg) saturate(0.44) brightness(0.62) contrast(0.68);
+}
+
+.ambient {
+  position: absolute;
+  display: block;
+  opacity: 0.18;
+  will-change: transform, opacity;
+}
+
+.ambient-orb {
+  border-radius: 999px;
+  background: rgba(106, 75, 55, 0.14);
+}
+
+.ambient-ring {
+  border: 2px solid rgba(106, 75, 55, 0.16);
+  border-radius: 999px;
+}
+
+.ambient-triangle {
+  width: 42px;
+  height: 38px;
+  background: rgba(106, 75, 55, 0.14);
+  clip-path: polygon(12% 88%, 46% 4%, 96% 70%);
+}
+
+.ambient-a { top: 18%; left: 23%; width: 46px; aspect-ratio: 1; animation: ambient-a 18s ease-in-out infinite alternate, particle-opacity-soft 22s ease-in-out infinite; }
+.ambient-b { top: 70%; right: 22%; width: 34px; aspect-ratio: 1; animation: ambient-b 16s ease-in-out infinite alternate, particle-opacity 20s ease-in-out infinite; }
+.ambient-c { top: 32%; right: 28%; width: 52px; aspect-ratio: 1; animation: ambient-c 20s ease-in-out infinite alternate, particle-opacity-soft 23s ease-in-out infinite; }
+.ambient-d { top: 86%; left: 24%; width: 40px; aspect-ratio: 1; animation: ambient-d 15s ease-in-out infinite alternate, particle-opacity 19s ease-in-out infinite; }
+.ambient-e { top: 8%; left: 20%; animation: ambient-a 14s ease-in-out infinite alternate, particle-opacity-soft 18s ease-in-out infinite; }
+.ambient-f { top: 38%; right: 18%; width: 36px; height: 32px; clip-path: polygon(4% 74%, 62% 8%, 91% 96%); animation: ambient-b 17s ease-in-out infinite alternate, particle-opacity 21s ease-in-out infinite; }
+.ambient-g { top: 53%; left: 22%; width: 32px; height: 42px; clip-path: polygon(18% 4%, 94% 32%, 36% 96%); animation: ambient-c 13s ease-in-out infinite alternate, particle-opacity-soft 16s ease-in-out infinite; }
+.ambient-h { top: 67%; right: 30%; width: 48px; height: 34px; clip-path: polygon(8% 92%, 24% 5%, 98% 55%); animation: ambient-d 19s ease-in-out infinite alternate, particle-opacity 24s ease-in-out infinite; }
+.ambient-i { top: 78%; left: 40%; width: 28px; height: 28px; clip-path: polygon(0 58%, 72% 0, 100% 100%); animation: ambient-a 12s ease-in-out infinite alternate, particle-opacity-soft 17s ease-in-out infinite; }
+.ambient-j { top: 24%; right: 43%; width: 30px; height: 44px; clip-path: polygon(16% 96%, 52% 0, 92% 82%); animation: ambient-b 15s ease-in-out infinite alternate, particle-opacity-soft 20s ease-in-out infinite; }
+
 .hero-copy h1,
 .page-hero h1 {
   max-width: 820px;
@@ -1193,12 +1336,53 @@ main {
   }
 }
 
+@keyframes ambient-a {
+  from {
+    transform: translate3d(0, 0, 0) rotate(-12deg) scale(1);
+  }
+
+  to {
+    transform: translate3d(30px, -22px, 0) rotate(18deg) scale(1.16);
+  }
+}
+
+@keyframes ambient-b {
+  from {
+    transform: translate3d(0, 0, 0) rotate(18deg) scale(1.08, 0.88);
+  }
+
+  to {
+    transform: translate3d(-28px, 26px, 0) rotate(-22deg) scale(0.86, 1.12);
+  }
+}
+
+@keyframes ambient-c {
+  from {
+    transform: translate3d(0, 0, 0) rotate(0deg) skew(6deg, -8deg);
+  }
+
+  to {
+    transform: translate3d(26px, 34px, 0) rotate(28deg) skew(-10deg, 8deg);
+  }
+}
+
+@keyframes ambient-d {
+  from {
+    transform: translate3d(0, 0, 0) rotate(-20deg) scale(0.92);
+  }
+
+  to {
+    transform: translate3d(-34px, -18px, 0) rotate(16deg) scale(1.18);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-copy::before,
   .profile-portrait::before,
   .profile-portrait::after,
   .shape,
-  .particle {
+  .particle,
+  .ambient {
     animation: none;
   }
 }
@@ -1287,28 +1471,40 @@ main {
 
   main {
     padding-top: 8px;
+    padding-bottom: 112px;
+  }
+
+  .site-header {
+    position: fixed;
+    top: auto;
+    right: 11px;
+    bottom: 10px;
+    left: 11px;
+    display: block;
+    margin: 0;
+    padding: 0;
   }
 
   .brand {
-    width: fit-content;
-    min-height: 34px;
-    font-size: 1.28rem;
-  }
-
-  .brand::before {
-    inset: -10px -28px -14px -26px;
+    display: none;
   }
 
   .nav-list {
-    gap: 4px;
+    gap: 5px;
     justify-content: center;
-    border-radius: 18px;
+    width: 100%;
+    padding: 7px;
+    border-radius: 999px;
+    background: rgba(255, 250, 241, 0.68);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.72),
+      0 16px 38px rgba(82, 49, 32, 0.18);
   }
 
   .nav-list a {
     min-height: 28px;
-    padding: 5px 8px;
-    font-size: 0.82rem;
+    padding: 5px 7px;
+    font-size: 0.8rem;
   }
 
   .page-particles {
