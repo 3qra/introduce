@@ -46,10 +46,10 @@ const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
 
         const tick = () => {
           target = window.scrollY;
-          current += (target - current) * 0.08;
+          current += (target - current) * 0.035;
           const delta = current - target;
-          root.style.setProperty("--hero-lag-y", `${delta * 0.08}px`);
-          root.style.setProperty("--particle-lag-y", `${delta * 0.16}px`);
+          root.style.setProperty("--hero-lag-y", `${delta * 0.24}px`);
+          root.style.setProperty("--particle-lag-y", `${delta * 0.42}px`);
           rafId = requestAnimationFrame(tick);
         };
 
