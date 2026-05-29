@@ -13,6 +13,22 @@ const { title, description, date, tags = [], backHref = "/" } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
+  <div class="article-particles" aria-hidden="true">
+    <span class="particle particle-a"></span>
+    <span class="particle particle-b"></span>
+    <span class="particle particle-f"></span>
+    <span class="particle particle-h"></span>
+    <span class="particle particle-n"></span>
+    <span class="particle particle-r"></span>
+    <span class="particle particle-w"></span>
+    <span class="particle particle-af"></span>
+    <span class="particle particle-ah"></span>
+    <span class="particle particle-av"></span>
+    <span class="ambient ambient-orb ambient-a"></span>
+    <span class="ambient ambient-ring ambient-c"></span>
+    <span class="ambient ambient-triangle ambient-f"></span>
+    <span class="ambient ambient-triangle ambient-h"></span>
+  </div>
   <article class="article-shell">
     <a class="back-link" href={backHref}>Back</a>
     <header class="article-header">

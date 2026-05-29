@@ -34,5 +34,28 @@ const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
       </main>
       <Footer />
     </div>
+    <script is:inline>
+      (() => {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduceMotion) return;
+
+        let current = window.scrollY;
+        let target = current;
+        let rafId = 0;
+        const root = document.documentElement;
+
+        const tick = () => {
+          target = window.scrollY;
+          current += (target - current) * 0.08;
+          const delta = current - target;
+          root.style.setProperty("--hero-lag-y", `${delta * 0.08}px`);
+          root.style.setProperty("--particle-lag-y", `${delta * 0.16}px`);
+          rafId = requestAnimationFrame(tick);
+        };
+
+        rafId = requestAnimationFrame(tick);
+        window.addEventListener("pagehide", () => cancelAnimationFrame(rafId), { once: true });
+      })();
+    </script>
   </body>
 </html>
