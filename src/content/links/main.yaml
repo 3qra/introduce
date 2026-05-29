@@ -9,10 +9,10 @@
   type: "social"
   identity: "handle"
   visibility: "public"
-  description: "活動メモや更新告知"
+  description: "活動メモと更新のお知らせ"
 - name: Career Profile
   url: "https://example.com"
   type: "career"
   identity: "real_name"
   visibility: "career"
-  description: "就活・院進向けプロフィール"
+  description: "就活・進学向けプロフィール"

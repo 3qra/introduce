@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import WorkCard from "@components/WorkCard.astro";
 import LinkCard from "@components/LinkCard.astro";
+import profileImage from "../img/sakuragawa.png";
 
 const works = (await getCollection("works"))
   .filter((work) => work.data.visibility === "public")
@@ -27,57 +28,60 @@ const skills = [
 <BaseLayout title="咲良川 / sakuragawa" description="咲良川の自己紹介、制作物、リンクをまとめたポートフォリオサイト。">
   <section class="hero-section">
     <div class="hero-copy">
-      <p class="eyebrow">Portfolio</p>
-      <h1>咲良川 / sakuragawa</h1>
+      <p class="eyebrow">Sakuragawa Portfolio</p>
+      <h1>咲くものを、使える形に。</h1>
       <p>
-        2005年生まれの学生です。制作物、学習していること、外部リンクをこのページにまとめています。
-        好きな食べ物はきしめんです。
+        2005年生まれの学生です。鉄道データ、時刻表、Webアプリ、Bot、天文系の小さな仕組みを作っています。
+        やわらかい見た目でも、中身はきちんと動くものを目指しています。
       </p>
       <div class="hero-actions">
         <a class="button primary" href="#works">作品を見る</a>
         <a class="button ghost" href="#profile">プロフィール</a>
       </div>
     </div>
-    <div class="hero-panel" aria-label="Site overview">
-      <div>
-        <span>Works</span>
-        <strong>{works.length}</strong>
-      </div>
-      <div>
-        <span>Focus</span>
-        <strong>Web / Data</strong>
-      </div>
-      <div>
-        <span>Base</span>
-        <strong>Astro</strong>
-      </div>
+    <figure class="profile-portrait" aria-label="咲良川のプロフィール画像">
+      <img src={profileImage.src} width={profileImage.width} height={profileImage.height} alt="桜の花冠をつけ、金色の鯛を持つプロフィールイラスト" />
+      <figcaption>
+        <span>Profile motif</span>
+        桜、和紙、金の鯛から着想したデザイン
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="section-band intro-strip" id="profile">
+    <div>
+      <p class="eyebrow">Profile</p>
+      <h2>好きなものを、観察して、整理して、動かす。</h2>
     </div>
+    <p>
+      鉄道や時刻、天文、日々の作業を題材に、データ収集から見える化、Webで使える形への落とし込みまで取り組んでいます。
+    </p>
   </section>
 
   <section class="section-band" id="works">
     <div class="section-heading">
       <p class="eyebrow">Featured</p>
-      <h2>今まで作ったもの</h2>
+      <h2>作ったもの</h2>
     </div>
     <div class="card-grid">
       {works.map((work) => <WorkCard work={work} />)}
     </div>
   </section>
 
-  <section class="content-grid two" id="profile">
+  <section class="content-grid two">
     <div class="info-panel">
-      <p class="eyebrow">Profile</p>
+      <p class="eyebrow">Interest</p>
       <h2>興味分野</h2>
       <ul class="marker-list">
         <li>鉄道データの収集、整形、可視化</li>
-        <li>天文システム、観測支援、時刻計算</li>
-        <li>Webアプリケーションと静的サイト構築</li>
-        <li>Bot、自動化、個人用補助ツール</li>
+        <li>時刻・経路・観測を扱う小さな支援ツール</li>
+        <li>Astro を中心にした静的サイト構築</li>
+        <li>Bot、自動化、個人用ユーティリティ</li>
       </ul>
     </div>
     <div class="info-panel">
       <p class="eyebrow">Now</p>
-      <h2>現在取り組んでいること</h2>
+      <h2>今取り組んでいること</h2>
       <ul class="marker-list">
         <li>GitHub Pages + Astro のポートフォリオ運用</li>
         <li>Python によるデータ取得と可視化</li>
@@ -103,14 +107,12 @@ const skills = [
   </section>
 
   <section class="section-band" id="links">
-    <div>
-      <div class="section-heading compact">
-        <p class="eyebrow">Connect</p>
-        <h2>主要リンク</h2>
-      </div>
-      <div class="card-grid">
-        {links.map((link) => <LinkCard {...link} />)}
-      </div>
+    <div class="section-heading compact">
+      <p class="eyebrow">Connect</p>
+      <h2>リンク</h2>
+    </div>
+    <div class="card-grid">
+      {links.map((link) => <LinkCard {...link} />)}
     </div>
   </section>
 </BaseLayout>
