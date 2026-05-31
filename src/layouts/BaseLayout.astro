@@ -25,8 +25,19 @@ const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
     <meta name="theme-color" content="#f6ead8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{pageTitle}</title>
+    <script is:inline>
+      document.documentElement.classList.add("js");
+    </script>
   </head>
   <body>
+    <div class="site-loader" aria-live="polite" aria-label="Loading">
+      <div class="loader-mark" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <p>Loading portfolio</p>
+    </div>
     <div class="site-shell">
       <Header />
       <main>
@@ -38,6 +49,58 @@ const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
       (() => {
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         if (reduceMotion) return;
+
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+        const scrollToHash = (hash) => {
+          const targetElement = document.querySelector(hash);
+          if (!targetElement) return false;
+
+          const startY = window.scrollY;
+          const targetY = targetElement.getBoundingClientRect().top + window.scrollY - 18;
+          const distance = targetY - startY;
+          const duration = Math.min(980, Math.max(520, Math.abs(distance) * 0.62));
+          const startedAt = performance.now();
+
+          const step = (now) => {
+            const progress = Math.min(1, (now - startedAt) / duration);
+            window.scrollTo(0, startY + distance * easeOutCubic(progress));
+            if (progress < 1) requestAnimationFrame(step);
+          };
+
+          requestAnimationFrame(step);
+          return true;
+        };
+
+        document.addEventListener("click", (event) => {
+          const clicked = event.target instanceof Element ? event.target : event.target?.parentElement;
+          const link = clicked?.closest("a[href]");
+          if (!link) return;
+
+          const url = new URL(link.href);
+          if (url.origin !== window.location.origin || !url.hash) {
+            return;
+          }
+
+          if (url.pathname !== window.location.pathname) {
+            sessionStorage.setItem("pending-scroll-hash", url.hash);
+            event.preventDefault();
+            window.location.href = url.pathname;
+            return;
+          }
+
+          if (scrollToHash(url.hash)) {
+            event.preventDefault();
+            history.pushState(null, "", url.hash);
+          }
+        });
+
+        const pendingHash = sessionStorage.getItem("pending-scroll-hash");
+        if (pendingHash) {
+          sessionStorage.removeItem("pending-scroll-hash");
+          window.setTimeout(() => {
+            if (scrollToHash(pendingHash)) history.replaceState(null, "", pendingHash);
+          }, 120);
+        }
 
         let current = window.scrollY;
         let target = current;
@@ -55,6 +118,21 @@ const pageTitle = title === siteName ? title : `${title} | ${siteName}`;
 
         rafId = requestAnimationFrame(tick);
         window.addEventListener("pagehide", () => cancelAnimationFrame(rafId), { once: true });
+      })();
+    </script>
+    <script is:inline>
+      (() => {
+        const done = () => {
+          window.setTimeout(() => document.documentElement.classList.add("is-loaded"), 260);
+        };
+
+        if (document.readyState === "complete") {
+          done();
+        } else {
+          window.addEventListener("load", done, { once: true });
+        }
+
+        window.addEventListener("pageshow", () => document.documentElement.classList.add("is-loaded"));
       })();
     </script>
   </body>
