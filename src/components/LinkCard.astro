@@ -12,8 +12,8 @@ const { name, url, type, identity, description } = Astro.props;
 
 <a class="link-card card-link" href={url} target="_blank" rel="noreferrer">
   <div class="card-topline">
-    <span>{type}</span>
-    <span>{identity}</span>
+    <span><i class="bi bi-link-45deg" aria-hidden="true"></i>{type}</span>
+    <span><i class="bi bi-person-badge" aria-hidden="true"></i>{identity}</span>
   </div>
   <h3>{name}</h3>
   {description && <p>{description}</p>}

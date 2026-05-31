@@ -13,13 +13,13 @@ const linkGroups = await getCollection("links");
 const links = linkGroups.flatMap((group) => group.data).filter((link) => link.visibility === "public");
 
 const skills = [
-  ["Python", "scraping / data / visualization"],
-  ["Java", "application / fundamentals"],
-  ["C++", "algorithm / systems"],
-  ["GAS", "workflow automation"],
-  ["Web", "Astro / HTML / CSS / JS"],
-  ["VPS / Linux", "deploy / operations"],
-  ["Bot / Automation", "Discord / tasks / integration"],
+  ["bi-filetype-py", "Python", "scraping / data / visualization"],
+  ["bi-cup-hot", "Java", "application / fundamentals"],
+  ["bi-cpu", "C++", "algorithm / systems"],
+  ["bi-google", "GAS", "workflow automation"],
+  ["bi-window-sidebar", "Web", "Astro / HTML / CSS / JS"],
+  ["bi-terminal", "VPS / Linux", "deploy / operations"],
+  ["bi-robot", "Bot / Automation", "Discord / tasks / integration"],
 ];
 ---
 
@@ -40,20 +40,19 @@ const skills = [
       <p class="eyebrow">Sakuragawa's Portfolio</p>
       <h1>咲くものを、使える形に。</h1>
       <p>
-        楽するためにエンジニアやってる大学生。WebApp, それに派生したAPIなど...。
-        バックエンドの方が好きかも。最近はLLMのアーキテクチャの分野に手出し中。猫かわいいよね。
-        ひつまぶしを奢ってくれると喜ぶよ。
+        楽するためにエンジニアリングする大学生。Webアプリ, それに派生したAPIなど。
+        バックエンドそこそこ触ります。IC通信技術に関心アリ。最近はLLMのアーキテクチャの分野に手出し中。猫派。
       </p>
       <div class="hero-actions">
-        <a class="button primary" href="#works">作品を見る</a>
-        <a class="button ghost" href="#profile">プロフィール</a>
+        <a class="button primary" href="#works"><i class="bi bi-grid-3x3-gap" aria-hidden="true"></i>作品を見る</a>
+        <a class="button ghost" href="#profile"><i class="bi bi-person-lines-fill" aria-hidden="true"></i>プロフィール</a>
       </div>
     </div>
     <figure class="profile-portrait" aria-label="咲良川のプロフィール画像">
       <img src={profileImage.src} width={profileImage.width} height={profileImage.height} alt="桜の花冠をつけ、金色の鯛を持つプロフィールイラスト" />
       <figcaption>
         <span>Profile motif</span>
-        桜、和紙、金の鯛から着想したデザイン
+        猫派。ひつまぶしを奢ってくれると喜びます。
       </figcaption>
     </figure>
   </section>
@@ -134,7 +133,7 @@ const skills = [
   <section class="section-band intro-strip" id="profile">
     <div>
       <p class="eyebrow">Profile</p>
-      <h2>好きなものを、観察して、整理して、動かす。</h2>
+      <h2><i class="bi bi-compass section-title-icon" aria-hidden="true"></i>好きなものを、観察・整理し、実装する。</h2>
     </div>
     <div class="intro-copy">
       <p>
@@ -142,22 +141,22 @@ const skills = [
         気になったものを小さく調べ、扱いやすいデータに整え、あとから使える道具として残していくのが好きです。
       </p>
       <div class="intro-keywords" aria-label="制作で大切にしていること">
-        <span>Collect</span>
-        <span>Structure</span>
-        <span>Visualize</span>
-        <span>Automate</span>
+        <span><i class="bi bi-download" aria-hidden="true"></i>Collect</span>
+        <span><i class="bi bi-diagram-3" aria-hidden="true"></i>Structure</span>
+        <span><i class="bi bi-bar-chart-line" aria-hidden="true"></i>Visualize</span>
+        <span><i class="bi bi-gear-wide-connected" aria-hidden="true"></i>Automate</span>
       </div>
       <div class="intro-notes">
         <div>
-          <span>見ているもの</span>
-          <strong>時刻表、路線、星空、日々の面倒な作業</strong>
+          <span><i class="bi bi-stars" aria-hidden="true"></i>趣味</span>
+          <strong>猫、旅行、星空</strong>
         </div>
         <div>
-          <span>作り方</span>
-          <strong>まず動くものを作り、使いながら整える</strong>
+          <span><i class="bi bi-clock-history" aria-hidden="true"></i>過去</span>
+          <strong>過去にはMinecraft(サンドボックス型ゲーム)やMisskey(分散型SNS)に多人数でアクセスするためのサーバーを運営していました。</strong>
         </div>
         <div>
-          <span>残したい形</span>
+          <span><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>残したい形</span>
           <strong>自分にも他人にも説明できるWebツール</strong>
         </div>
       </div>
@@ -167,7 +166,7 @@ const skills = [
   <section class="section-band" id="works">
     <div class="section-heading">
       <p class="eyebrow">Featured</p>
-      <h2>作ったもの</h2>
+      <h2><i class="bi bi-kanban section-title-icon" aria-hidden="true"></i>作ったもの</h2>
     </div>
     <div class="card-grid">
       {works.map((work) => <WorkCard work={work} />)}
@@ -177,22 +176,22 @@ const skills = [
   <section class="content-grid two">
     <div class="info-panel">
       <p class="eyebrow">Interest</p>
-      <h2>興味分野</h2>
+      <h2><i class="bi bi-binoculars section-title-icon" aria-hidden="true"></i>興味分野</h2>
       <ul class="marker-list">
-        <li>鉄道データの収集、整形、可視化</li>
-        <li>時刻・経路・観測を扱う小さな支援ツール</li>
-        <li>Astro を中心にした静的サイト構築</li>
-        <li>Bot、自動化、個人用ユーティリティ</li>
+        <li><i class="bi bi-train-front" aria-hidden="true"></i>鉄道データの収集、整形、可視化</li>
+        <li><i class="bi bi-clock" aria-hidden="true"></i>時刻・経路・観測を扱う小さな支援ツール</li>
+        <li><i class="bi bi-window" aria-hidden="true"></i>Astro を中心にした静的サイト構築</li>
+        <li><i class="bi bi-lightning-charge" aria-hidden="true"></i>Bot、自動化、個人用ユーティリティ</li>
       </ul>
     </div>
     <div class="info-panel">
       <p class="eyebrow">Now</p>
-      <h2>今取り組んでいること</h2>
+      <h2><i class="bi bi-activity section-title-icon" aria-hidden="true"></i>今取り組んでいること</h2>
       <ul class="marker-list">
-        <li>GitHub Pages + Astro のポートフォリオ運用</li>
-        <li>Python によるデータ取得と可視化</li>
-        <li>応用情報、語学、情報安全の継続学習</li>
-        <li>VPS / Linux 環境での小規模サービス運用</li>
+        <li><i class="bi bi-github" aria-hidden="true"></i>GitHub Pages + Astro のポートフォリオ運用</li>
+        <li><i class="bi bi-filetype-py" aria-hidden="true"></i>Python によるデータ取得と可視化</li>
+        <li><i class="bi bi-journal-code" aria-hidden="true"></i>応用情報、語学、情報安全の継続学習</li>
+        <li><i class="bi bi-hdd-network" aria-hidden="true"></i>VPS / Linux 環境での小規模サービス運用</li>
       </ul>
     </div>
   </section>
@@ -200,23 +199,23 @@ const skills = [
   <section class="section-band" id="profile-notes">
     <div class="section-heading compact">
       <p class="eyebrow">Profile Notes</p>
-      <h2>プロフィールメモ</h2>
+      <h2><i class="bi bi-card-checklist section-title-icon" aria-hidden="true"></i>プロフィールメモ</h2>
     </div>
     <div class="profile-facts">
       <div class="fact-card">
-        <span>好きな食べ物</span>
+        <span><i class="bi bi-egg-fried" aria-hidden="true"></i>好きな食べ物</span>
         <strong>きしめん</strong>
       </div>
       <div class="fact-card">
-        <span>住所</span>
+        <span><i class="bi bi-geo-alt" aria-hidden="true"></i>住所</span>
         <strong>奈良</strong>
       </div>
       <div class="fact-card">
-        <span>よく触るもの</span>
+        <span><i class="bi bi-tools" aria-hidden="true"></i>よく触るもの</span>
         <strong>時刻表 / Web / Bot</strong>
       </div>
       <div class="fact-card">
-        <span>作業環境</span>
+        <span><i class="bi bi-laptop" aria-hidden="true"></i>作業環境</span>
         <strong>Astro / Python / Linux</strong>
       </div>
     </div>
@@ -225,12 +224,12 @@ const skills = [
   <section class="section-band" id="skills">
     <div class="section-heading">
       <p class="eyebrow">Skills</p>
-      <h2>使っている技術</h2>
+      <h2><i class="bi bi-braces-asterisk section-title-icon" aria-hidden="true"></i>使っている技術</h2>
     </div>
     <div class="skill-grid">
-      {skills.map(([name, detail]) => (
+      {skills.map(([icon, name, detail]) => (
         <div class="skill-badge">
-          <strong>{name}</strong>
+          <strong><i class={`bi ${icon}`} aria-hidden="true"></i>{name}</strong>
           <span>{detail}</span>
         </div>
       ))}
@@ -240,7 +239,7 @@ const skills = [
   <section class="section-band" id="links">
     <div class="section-heading compact">
       <p class="eyebrow">Connect</p>
-      <h2>リンク</h2>
+      <h2><i class="bi bi-send section-title-icon" aria-hidden="true"></i>リンク</h2>
     </div>
     <div class="card-grid">
       {links.map((link) => <LinkCard {...link} />)}

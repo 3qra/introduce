@@ -37,7 +37,7 @@ const { title, description, date, tags = [], backHref = "/" } = Astro.props;
       <p>{description}</p>
       {tags.length > 0 && (
         <div class="tag-row">
-          {tags.map((tag) => <span class="tag">{tag}</span>)}
+          {tags.map((tag) => <span class="tag"><i class="bi bi-hash" aria-hidden="true"></i>{tag}</span>)}
         </div>
       )}
     </header>
