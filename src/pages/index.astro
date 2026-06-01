@@ -13,13 +13,12 @@ const linkGroups = await getCollection("links");
 const links = linkGroups.flatMap((group) => group.data).filter((link) => link.visibility === "public");
 
 const skills = [
-  ["bi-filetype-py", "Python", "scraping / data / visualization"],
-  ["bi-cup-hot", "Java", "application / fundamentals"],
-  ["bi-cpu", "C++", "algorithm / systems"],
-  ["bi-google", "GAS", "workflow automation"],
-  ["bi-window-sidebar", "Web", "Astro / HTML / CSS / JS"],
-  ["bi-terminal", "VPS / Linux", "deploy / operations"],
-  ["bi-robot", "Bot / Automation", "Discord / tasks / integration"],
+  ["bi-filetype-py", "Python", "機械学習、データ処理など。困ったときはなんでも押し付けてます"],
+  ["bi-braces", "Java", "あまり使わないが一応。大昔にMinecraft Serverの自作plugin作ってました(かなり忘れた)"],
+  ["bi-code-slash", "C++", "アルゴリズム系。最近AtCoderやってます！"],
+  ["bi-browser-chrome", "Web系", "HTML / CSS / JSそれぞれ。BootStrap愛用していました。"],
+  ["bi-box-seam", "Docker", "車免許取得1年目くらいの出来"],
+  ["bi-lightning-charge", "Go", "バリバリ学習中。仮免程度。早すぎて見えない。"],
 ];
 ---
 
@@ -137,14 +136,13 @@ const skills = [
     </div>
     <div class="intro-copy">
       <p>
-        鉄道や時刻、天文、日々の作業を題材に、データ収集から見える化、Webで使える形への落とし込みまで取り組んでいます。
-        気になったものを小さく調べ、扱いやすいデータに整え、あとから使える道具として残していくのが好きです。
+      社会システムや既存サービスを観察・分析し、その構造や背景にある設計思想を理解した上で、個人や小規模なコミュニティに適した形へ再設計・応用することをテーマに制作活動を行っています。
+      単に機能を作るだけではなく、「なぜその仕組みが成立しているのか」「どのような制約や運用によって支えられているのか」といった部分まで含めて捉えることを重視しています。
+      また、既存の大きな仕組みをそのまま模倣するのではなく、必要な要素を抽出し、より小さな環境でも持続的に運用できる形へ落とし込むことに関心があります。
+      複雑な構造を理解し、それを整理・抽象化したうえで、新しい用途や別の文脈へ応用していく過程に面白さを感じています。
       </p>
-      <div class="intro-keywords" aria-label="制作で大切にしていること">
-        <span><i class="bi bi-download" aria-hidden="true"></i>Collect</span>
-        <span><i class="bi bi-diagram-3" aria-hidden="true"></i>Structure</span>
-        <span><i class="bi bi-bar-chart-line" aria-hidden="true"></i>Visualize</span>
-        <span><i class="bi bi-gear-wide-connected" aria-hidden="true"></i>Automate</span>
+      <div class="intro-keywords" aria-label="経歴">
+        <span><i class="bi bi-award" aria-hidden="true"></i>応用情報技術者 (AP)</span>
       </div>
       <div class="intro-notes">
         <div>
@@ -180,7 +178,7 @@ const skills = [
       <ul class="marker-list">
         <li><i class="bi bi-github" aria-hidden="true"></i>GitHub Pages + Astro のポートフォリオ運用</li>
         <li><i class="bi bi-filetype-py" aria-hidden="true"></i>Python によるデータ取得と可視化</li>
-        <li><i class="bi bi-journal-code" aria-hidden="true"></i>応用情報、語学、情報安全の継続学習</li>
+        <li><i class="bi bi-mortarboard" aria-hidden="true"></i>応用情報、語学、情報安全の継続学習</li>
         <li><i class="bi bi-hdd-network" aria-hidden="true"></i>VPS / Linux 環境での小規模サービス運用</li>
       </ul>
     </div>
@@ -199,7 +197,7 @@ const skills = [
   <section class="section-band" id="skills">
     <div class="section-heading">
       <p class="eyebrow">Skills</p>
-      <h2><i class="bi bi-braces-asterisk section-title-icon" aria-hidden="true"></i>使っている技術</h2>
+      <h2><i class="bi bi-braces-asterisk section-title-icon" aria-hidden="true"></i>取扱スキル</h2>
     </div>
     <div class="skill-grid">
       {skills.map(([icon, name, detail]) => (

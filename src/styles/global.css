@@ -1139,6 +1139,11 @@ main {
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   text-align: left;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.skill-badge:hover {
+  transform: translateY(-2px);
 }
 
 .skill-badge::before {
@@ -1169,7 +1174,16 @@ main {
 }
 
 .skill-badge strong i {
-  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: #fff8ec;
+  font-size: 1rem;
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(127, 60, 66, 0.16);
 }
 
 .skill-badge span {
