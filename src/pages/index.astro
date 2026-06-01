@@ -153,23 +153,13 @@ const skills = [
         </div>
         <div>
           <span><i class="bi bi-clock-history" aria-hidden="true"></i>過去</span>
-          <strong>過去にはMinecraftやMisskeyへ多人数でアクセスするためのサーバーを運営していました。</strong>
+          <strong>過去にはMinecraftやMisskeyに多人数でアクセスするためのサーバーを運営していました。</strong>
         </div>
         <div>
           <span><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>残したい形</span>
           <strong>自分にも他人にも説明できるWebツール</strong>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section-band" id="works">
-    <div class="section-heading">
-      <p class="eyebrow">Featured</p>
-      <h2><i class="bi bi-kanban section-title-icon" aria-hidden="true"></i>作ったもの</h2>
-    </div>
-    <div class="card-grid">
-      {works.map((work) => <WorkCard work={work} />)}
     </div>
   </section>
 
@@ -196,28 +186,13 @@ const skills = [
     </div>
   </section>
 
-  <section class="section-band" id="profile-notes">
-    <div class="section-heading compact">
-      <p class="eyebrow">Profile Notes</p>
-      <h2><i class="bi bi-card-checklist section-title-icon" aria-hidden="true"></i>プロフィールメモ</h2>
+  <section class="section-band" id="works">
+    <div class="section-heading">
+      <p class="eyebrow">Featured</p>
+      <h2><i class="bi bi-kanban section-title-icon" aria-hidden="true"></i>作ったもの</h2>
     </div>
-    <div class="profile-facts">
-      <div class="fact-card">
-        <span><i class="bi bi-egg-fried" aria-hidden="true"></i>好きな食べ物</span>
-        <strong>きしめん</strong>
-      </div>
-      <div class="fact-card">
-        <span><i class="bi bi-geo-alt" aria-hidden="true"></i>住所</span>
-        <strong>奈良</strong>
-      </div>
-      <div class="fact-card">
-        <span><i class="bi bi-tools" aria-hidden="true"></i>よく触るもの</span>
-        <strong>時刻表 / Web / Bot</strong>
-      </div>
-      <div class="fact-card">
-        <span><i class="bi bi-laptop" aria-hidden="true"></i>作業環境</span>
-        <strong>Astro / Python / Linux</strong>
-      </div>
+    <div class="card-grid">
+      {works.map((work) => <WorkCard work={work} />)}
     </div>
   </section>
 
