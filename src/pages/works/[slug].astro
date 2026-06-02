@@ -11,17 +11,22 @@ export async function getStaticPaths() {
 
 const { work } = Astro.props;
 const { Content } = await work.render();
+
+const linkMeta: Record<string, { label: string; icon: string }> = {
+  github: { label: "GitHub", icon: "bi-github" },
+  demo: { label: "Page", icon: "bi-box-arrow-up-right" },
+  article: { label: "Article", icon: "bi-journal-text" },
+};
+
+const workLinks = Object.entries(work.data.links)
+  .filter(([, url]) => url)
+  .map(([label, url]) => ({
+    label: linkMeta[label]?.label ?? label,
+    icon: linkMeta[label]?.icon ?? "bi-link-45deg",
+    url: url as string,
+  }));
 ---
 
-<ArticleLayout title={work.data.title} description={work.data.summary} date={work.data.date} tags={work.data.tags} backHref="/#works">
-  <div class="article-meta-grid">
-    <div><span>status</span><strong>{work.data.status}</strong></div>
-    <div><span>category</span><strong>{work.data.category}</strong></div>
-  </div>
+<ArticleLayout title={work.data.title} description={work.data.summary} date={work.data.date} tags={work.data.tags} links={workLinks} backHref="/#works">
   <Content />
-  <div class="article-links">
-    {Object.entries(work.data.links).filter(([, url]) => url).map(([label, url]) => (
-      <a class="button ghost" href={url as string} target="_blank" rel="noreferrer">{label}</a>
-    ))}
-  </div>
 </ArticleLayout>

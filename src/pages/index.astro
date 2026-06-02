@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "@layouts/BaseLayout.astro";
 import WorkCard from "@components/WorkCard.astro";
-import LinkCard from "@components/LinkCard.astro";
 import profileImage from "../img/sakuragawa.png";
 
 const works = (await getCollection("works"))
@@ -11,6 +10,16 @@ const works = (await getCollection("works"))
 
 const linkGroups = await getCollection("links");
 const links = linkGroups.flatMap((group) => group.data).filter((link) => link.visibility === "public");
+const linkIconMap: Record<string, string> = {
+  code: "bi-github",
+  social: "bi-twitter-x",
+  blog: "bi-journal-text",
+  career: "bi-person-vcard",
+};
+const heroLinks = links.slice(0, 4).map((link) => ({
+  ...link,
+  icon: linkIconMap[link.type] ?? "bi-link-45deg",
+}));
 
 const skills = [
   ["bi-filetype-py", "Python", "機械学習、データ処理など。困ったときはなんでも押し付けてます"],
@@ -46,6 +55,16 @@ const skills = [
         <a class="button primary" href="#works"><i class="bi bi-grid-3x3-gap" aria-hidden="true"></i>作品を見る</a>
         <a class="button ghost" href="#profile"><i class="bi bi-person-lines-fill" aria-hidden="true"></i>プロフィール</a>
       </div>
+      {heroLinks.length > 0 && (
+        <div class="hero-social-links" aria-label="Links">
+          {heroLinks.map((link) => (
+            <a href={link.url} target="_blank" rel="noreferrer" aria-label={link.name}>
+              <i class={`bi ${link.icon}`} aria-hidden="true"></i>
+              <span>{link.name}</span>
+            </a>
+          ))}
+        </div>
+      )}
     </div>
     <figure class="profile-portrait" aria-label="咲良川のプロフィール画像">
       <img src={profileImage.src} width={profileImage.width} height={profileImage.height} alt="さくらがわのプロフィールイラスト" />
@@ -135,33 +154,27 @@ const skills = [
       <h2><i class="bi bi-compass section-title-icon" aria-hidden="true"></i>好きなものを、観察・整理し、実装する。</h2>
     </div>
     <div class="intro-copy">
-      <p>
-      社会システムや既存サービスを観察・分析し、その構造や背景にある設計思想を理解した上で、個人や小規模なコミュニティに適した形へ再設計・応用することをテーマに制作活動を行っています。
-      単に機能を作るだけではなく、「なぜその仕組みが成立しているのか」「どのような制約や運用によって支えられているのか」といった部分まで含めて捉えることを重視しています。
-      また、既存の大きな仕組みをそのまま模倣するのではなく、必要な要素を抽出し、より小さな環境でも持続的に運用できる形へ落とし込むことに関心があります。
-      複雑な構造を理解し、それを整理・抽象化したうえで、新しい用途や別の文脈へ応用していく過程に面白さを感じています。
-      </p>
-      <div class="intro-keywords" aria-label="経歴">
-        <span><i class="bi bi-award" aria-hidden="true"></i>応用情報技術者 (AP)</span>
-      </div>
-      <div class="intro-notes">
-        <div>
-          <span><i class="bi bi-stars" aria-hidden="true"></i>趣味</span>
-          <strong>猫、旅行、星空</strong>
-        </div>
-        <div>
-          <span><i class="bi bi-clock-history" aria-hidden="true"></i>過去</span>
-          <strong>過去にはMinecraftやMisskeyに多人数でアクセスするためのサーバーを運営していました。</strong>
-        </div>
-        <div>
-          <span><i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>残したい形</span>
-          <strong>自分にも他人にも説明できるWebツール</strong>
-        </div>
+      <section class="personal-profile" aria-label="私的なプロフィール">
+        <p class="personal-profile-title"><i class="bi bi-person-heart" aria-hidden="true"></i>私的なプロフィール</p>
+        <ul>
+          <li><span>資格</span><strong>応用情報技術者 (AP)</strong></li>
+          <li><span>趣味</span><strong>猫、旅行、星空</strong></li>
+          <li><span>過去</span><strong>過去にはMinecraftやMisskeyに多人数でアクセスするためのサーバーを運営していました。</strong></li>
+          <li><span>残したい形</span><strong>自分にも他人にも説明できるWebツール</strong></li>
+        </ul>
+      </section>
+      <div class="profile-statement">
+        <p>
+          社会システムや既存サービスを観察・分析し、その構造や背景にある設計思想を理解した上で、個人や小規模なコミュニティに適した形へ再設計・応用することをテーマに制作活動を行っています。
+        </p>
+        <p>
+          単に機能を作るだけではなく、「なぜその仕組みが成立しているのか」「どのような制約や運用によって支えられているのか」といった部分まで含めて捉えることを重視しています。
+        </p>
       </div>
     </div>
   </section>
 
-  <section class="content-grid two">
+  <section class="content-grid two profile-followup">
     <div class="info-panel">
       <p class="eyebrow">Interest</p>
       <h2><i class="bi bi-binoculars section-title-icon" aria-hidden="true"></i>興味分野</h2>
@@ -189,7 +202,7 @@ const skills = [
       <p class="eyebrow">Featured</p>
       <h2><i class="bi bi-kanban section-title-icon" aria-hidden="true"></i>作ったもの</h2>
     </div>
-    <div class="card-grid">
+    <div class="work-scroll" aria-label="成果物一覧">
       {works.map((work) => <WorkCard work={work} />)}
     </div>
   </section>
@@ -199,23 +212,13 @@ const skills = [
       <p class="eyebrow">Skills</p>
       <h2><i class="bi bi-braces-asterisk section-title-icon" aria-hidden="true"></i>取扱スキル</h2>
     </div>
-    <div class="skill-grid">
+    <div class="skill-panel">
       {skills.map(([icon, name, detail]) => (
-        <div class="skill-badge">
+        <div class="skill-row">
           <strong><i class={`bi ${icon}`} aria-hidden="true"></i>{name}</strong>
           <span>{detail}</span>
         </div>
       ))}
-    </div>
-  </section>
-
-  <section class="section-band" id="links">
-    <div class="section-heading compact">
-      <p class="eyebrow">Connect</p>
-      <h2><i class="bi bi-send section-title-icon" aria-hidden="true"></i>リンク</h2>
-    </div>
-    <div class="card-grid">
-      {links.map((link) => <LinkCard {...link} />)}
     </div>
   </section>
 </BaseLayout>

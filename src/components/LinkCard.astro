@@ -17,4 +17,8 @@ const { name, url, type, identity, description } = Astro.props;
   </div>
   <h3>{name}</h3>
   {description && <p>{description}</p>}
+  <span class="card-cta">
+    開く
+    <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+  </span>
 </a>

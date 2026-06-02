@@ -10,6 +10,12 @@
   identity: "handle"
   visibility: "public"
   description: "活動メモと更新のお知らせ"
+- name: note
+  url: "https://note.com/3qra"
+  type: "blog"
+  identity: "handle"
+  visibility: "public"
+  description: "制作メモや記事の置き場"
 - name: Career Profile
   url: "https://example.com"
   type: "career"

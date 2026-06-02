@@ -6,10 +6,11 @@ interface Props {
   description: string;
   date?: Date;
   tags?: string[];
+  links?: { label: string; url: string; icon: string }[];
   backHref?: string;
 }
 
-const { title, description, date, tags = [], backHref = "/" } = Astro.props;
+const { title, description, date, tags = [], links = [], backHref = "/" } = Astro.props;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -38,6 +39,16 @@ const { title, description, date, tags = [], backHref = "/" } = Astro.props;
       {tags.length > 0 && (
         <div class="tag-row">
           {tags.map((tag) => <span class="tag"><i class="bi bi-hash" aria-hidden="true"></i>{tag}</span>)}
+        </div>
+      )}
+      {links.length > 0 && (
+        <div class="article-quick-links" aria-label="外部リンク">
+          {links.map((link) => (
+            <a class="button ghost" href={link.url} target="_blank" rel="noreferrer">
+              <i class={`bi ${link.icon}`} aria-hidden="true"></i>
+              {link.label}
+            </a>
+          ))}
         </div>
       )}
     </header>
