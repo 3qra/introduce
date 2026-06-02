@@ -943,7 +943,7 @@ main {
   display: inline-flex;
   gap: 7px;
   align-items: center;
-  margin: 0 0 12px;
+  margin: 0 0 18px;
   color: var(--gold);
   font-size: 0.78rem;
   font-weight: 850;

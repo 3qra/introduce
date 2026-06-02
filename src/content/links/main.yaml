@@ -1,11 +1,11 @@
 - name: GitHub
-  url: "https://github.com/xxxx"
+  url: "https://github.com/3qra"
   type: "code"
   identity: "handle"
   visibility: "public"
   description: "制作物とコードの公開先"
 - name: X
-  url: "https://x.com/xxxx"
+  url: "https://x.com/3qra_side"
   type: "social"
   identity: "handle"
   visibility: "public"
